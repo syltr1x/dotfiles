@@ -54,5 +54,11 @@ Apply theme in rofi config:
 ```
 echo '@theme "/usr/share/rofi/themes/nord.rasi"' > ~/.config/rofi/config.rasi
 ```
-
-dasds
+## WayBar
+Copy config to waybar path:
+```
+git clone https://github.com/syltr1x/dotfiles
+cd dotfiles
+mv waybar ~/.config/
+```
+❗ Don't forgot read the config.jsonc, scripts/get_ip.sh scripts/htb_ip.sh to configure network interface and other values.
