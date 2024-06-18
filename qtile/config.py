@@ -1,8 +1,15 @@
-import subprocess as sp
-from libqtile import bar, layout, qtile, widget
+import subprocess as sp, os
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+bg_path = "/home/syltr1x/Pictures/wallpaper.jpg"
+
+# Start picom for kitty and background config
+@hook.subscribe.startup_once
+def autostart()d:
+    sp.Popen(["picom"], preexec_fn=os.setpgrp)
+    sp.Popen(["feh", "--bg-fill", bg_path])
 
 mod = "mod4"
 alt = "mod1"
@@ -140,7 +147,7 @@ def show_icon(icon, bg_color, fg_color):
         foreground=fg_color)
 
 def local_con(bg_color, fg_color):
-    ip = sp.check_output('hostname -I', shell=True)
+    ip = sp.check_output("ip a | grep 'inet ' | awk '{ print $2 }' | cut -d/ -f1 | tail -1", shell=True)
     ip = str(ip)[2:][:-1]
     if ip.count(' ') > 1:
         vpn = ip.split(' ')[1]
