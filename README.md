@@ -51,7 +51,7 @@ Install Plugins:
 ## Rofi
 Download [nord](https://github.com/undiabler/nord-rofi-theme) theme:
 ```
-sudo curl -s https://raw.githubusercontent.com/undiabler/nord-rofi-theme/master/nord.rasi 
+sudo curl -s https://raw.githubusercontent.com/undiabler/nord-rofi-theme/master/nord.rasi \
   -o /usr/share/rofi/themes/nord.rasi 
 ```
 Apply theme in rofi config:
