@@ -32,6 +32,7 @@ sudo apt-get install kitty
 ## NeoVim
 ❗ You need latest version of nvim (not installed in majority of distros)
 Install latest NeoVim Version [here](https://github.com/neovim/neovim/releases)
+
 Install [Vim-Plug](https://github.com/junegunn/vim-plug):
 ```
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
