@@ -41,7 +41,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 Add Config file to the nvim path:
 ```
-curl https://github.com/syltr1x/dotfiles/main/nvim/init.vim -o ~/.config/nvim/init.vim 
+curl https://raw.githubusercontent.com/syltr1x/dotfiles/main/nvim/init.vim -o ~/.config/nvim/init.vim 
 ```
 Install Plugins:
 ```
@@ -66,3 +66,31 @@ cd dotfiles
 mv waybar ~/.config/
 ```
 ❗ Don't forgot read the config.jsonc, scripts/get_ip.sh scripts/htb_ip.sh to configure network interface and other values.
+## Terminal Config
+#### See how to install zsh in your distro
+Arch Based:
+```
+sudo pacman -S zsh
+```
+Debian Based:
+```
+sudo apt-get install zsh
+```
+#### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+#### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k):
+```
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+```
+#### Install oh-my-zsh plugins:
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+#### Aliasses:
+```
+curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/.zshalias -o ~/.zshalias
+```
