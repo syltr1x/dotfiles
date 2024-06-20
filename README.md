@@ -92,5 +92,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ```
 #### Aliasses:
 ```
-curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/.zshalias -o ~/.zshalias
+curl -s https://raw.githubusercontent.com/syltr1x/dotfilesmain.zshalias -o ~/.zshalias
 ```
