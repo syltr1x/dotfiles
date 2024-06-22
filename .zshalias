@@ -7,6 +7,7 @@ alias glo="git log --oneline"
 alias gaa="git add ."
 alias gpl="git pull"
 alias gf="git fetch"
+alias gdf="git diff"
 alias mkh="mkdir logs victim" 
 
 gsc() {git clone https://github.com/syltr1x/$1}
