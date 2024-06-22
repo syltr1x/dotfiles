@@ -16,18 +16,12 @@ chmod +x set-hypr
 #### ❗ See how to install Qtile in your distro [here](https://docs.qtile.org/en/latest/manual/install/index.html)
 Apply Qtile config:
 ```
-curl https://raw.githubusercontent.com/syltr1x/dotfiles/qtile/config.py -o ~/.config/qtile/config.py
+curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/qtile/config.py -o ~/.config/qtile/config.py
 ```
 ## Kitty
 #### See how to install kitty in your distro [here](https://sw.kovidgoyal.net/kitty/binary/):
-
-Arch Based:
 ```
-sudo pacman -S kitty
-```
-Debian Based:
-```
-sudo apt-get install kitty
+curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/main/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ```
 ## NeoVim
 ❗ You need latest version of nvim (not installed in majority of distros)
@@ -41,7 +35,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 Add Config file to the nvim path:
 ```
-curl https://raw.githubusercontent.com/syltr1x/dotfiles/main/nvim/init.vim -o ~/.config/nvim/init.vim 
+curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/main/nvim/init.vim -o ~/.config/nvim/init.vim 
 ```
 Install Plugins:
 ```
@@ -66,7 +60,8 @@ cd dotfiles
 mv waybar ~/.config/
 ```
 ❗ Don't forgot read the config.jsonc, scripts/get_ip.sh scripts/htb_ip.sh to configure network interface and other values.
-## Terminal Config (zsh)#### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
+## Terminal Config (zsh)
+#### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
