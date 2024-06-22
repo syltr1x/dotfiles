@@ -66,17 +66,7 @@ cd dotfiles
 mv waybar ~/.config/
 ```
 ❗ Don't forgot read the config.jsonc, scripts/get_ip.sh scripts/htb_ip.sh to configure network interface and other values.
-## Terminal Config
-#### See how to install zsh in your distro
-Arch Based:
-```
-sudo pacman -S zsh
-```
-Debian Based:
-```
-sudo apt-get install zsh
-```
-#### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
+## Terminal Config (zsh)#### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
