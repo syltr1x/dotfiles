@@ -6,23 +6,27 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Añade los plugins aquí
 
+"Plug 'neoclide/coc.nvim' " Code Errors
 Plug 'preservim/nerdtree' " Left Files Menu
-Plug 'rebelot/kanagawa.nvim'
+Plug 'rebelot/kanagawa.nvim' " Great wave of Kanagawa theme. Color Schemes (-dragon, -wave, -lotus)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive' 
+Plug 'itchyny/lightline.vim' " Barra Inferior
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-scripts/sh.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Townk/vim-autoclose'
+Plug 'Townk/vim-autoclose' " Autoclose
 Plug 'mattn/emmet-vim'
-Plug 'goolord/alpha-nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'goolord/alpha-nvim' " Banner
+Plug 'nvim-telescope/telescope.nvim' " Dependecy for banner (alpha)
 Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
-
+Plug 'chikko80/error-lens.nvim' " Error Lens
+Plug 'norcalli/nvim-colorizer.lua' " Color Highlight
 call plug#end()
 
 colorscheme kanagawa-wave
+highlight Normal guibg=NONE ctermbg=NONE
+let g:error_lens_enabled = 1 " Inicia el Error-Lens
 
 " Mapear atajos de teclado para abrir y cerrar NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -36,7 +40,29 @@ set guicursor=a:ver100
 set clipboard+=unnamedplus
 set clipboard+=unnamed
 set clipboard+=unnamedplus
-highlight Normal guibg=NONE ctermbg=NONE
+
+
+set laststatus=2  " Mostrar siempre la línea de estado
+let g:pyright_path = '/usr/node-v20.15.0-linux-x64/bin/pyright'
+
+" Configuración de Lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             ['readonly', 'filename', 'modified'] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'lineinfo': 'LightlineLineInfo',
+      \ },
+      \ 'component_expand': {
+      \   'lineinfo': 'lightline#contrib#lineinfo#lineinfo',
+      \ }
+      \ }
+
 
 " Configuracion del banner
 lua << EOF
@@ -63,7 +89,7 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
    dashboard.button( "f", "  Find File", ":Telescope find_files <CR>"),
    dashboard.button( "t", "  Search Text", ":Telescope live_grep <CR>"),
-   dashboard.button( "e", "  New File", ":DashboardNewFile <CR>"),
+   dashboard.button( "e", "  New File", ":ene <BAR> startinsert <CR>"),
    dashboard.button( "r", "󰋚  Recent Files", ":Telescope oldfiles <CR>"),
    dashboard.button( "h", "  Load Last Session", ":SessionLoad <CR>"),
    dashboard.button( "b", "  Bookmarks", ":Telescope marks <CR>"),
