@@ -20,8 +20,14 @@ curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/qtile/config.py -o ~/
 ```
 ## Kitty
 #### See how to install kitty in your distro [here](https://sw.kovidgoyal.net/kitty/binary/):
+
+Arch Based:
 ```
-curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/main/kitty/kitty.conf ~/.config/kitty/kitty.conf
+sudo pacman -S kitty
+```
+Debian Based:
+```
+sudo apt-get install kitty
 ```
 ## NeoVim
 ❗ You need latest version of nvim (not installed in majority of distros)
@@ -60,7 +66,16 @@ cd dotfiles
 mv waybar ~/.config/
 ```
 ❗ Don't forgot read the config.jsonc, scripts/get_ip.sh scripts/htb_ip.sh to configure network interface and other values.
-## Terminal Config (zsh)
+## Terminal Config
+#### See how to install zsh in your distro
+Arch Based:
+```
+sudo pacman -S zsh
+```
+Debian Based:
+```
+sudo apt-get install zsh
+```
 #### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
