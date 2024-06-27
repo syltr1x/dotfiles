@@ -3,24 +3,17 @@ set number
 set mouse=
 
 call plug#begin('~/.local/share/nvim/plugged')
-
-" Añade los plugins aquí
-
 Plug 'neoclide/coc.nvim' " Code Errors
 Plug 'preservim/nerdtree' " Left Files Menu
 Plug 'rebelot/kanagawa.nvim' " Great wave of Kanagawa theme. Color Schemes (-dragon, -wave, -lotus)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'tpope/vim-fugitive' 
+Plug 'tpope/vim-fugitive' " Add Git
 Plug 'itchyny/lightline.vim' " Barra Inferior
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-scripts/sh.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Townk/vim-autoclose' " Autoclose
 Plug 'mattn/emmet-vim'
-Plug 'goolord/alpha-nvim' " Banner
-Plug 'nvim-telescope/telescope.nvim' " Dependecy for banner (alpha)
-Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
-Plug 'nvim-telescope/telescope-file-browser.nvim' " Dependency for telescope
 " ERROR-LENS (START)
 Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
@@ -60,7 +53,6 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             ['readonly', 'filename', 'modified'] ],
       \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
       \              [ 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
@@ -84,51 +76,18 @@ lua << EOF
 	augroup END
 	]]
 EOF
+
 " Configuracion de Treesitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = {"python", "javascript", "html", "css", "bash", "rust"}, -- Lista de lenguajes
+	ensure_installed = {"python", "javascript", "html", "css", "bash", "rust", "lua"}, -- Lista de lenguajes
 	highlight = {
 		enable = true,
 	},
 }
 EOF
+
 augroup lsp
   autocmd!
   autocmd BufEnter,BufWinENter,TabEnter *.py lua vim.diagnostic.setloclist({open = false})
 augroup END
-
-
-" Configuracion del banner
-lua << EOF
-local alpha = require'alpha'
-local dashboard = require'alpha.themes.dashboard'
-dashboard.section.header.val = {
-    '','',
-    '                                    ██████                                    ',
-    '                                ████▒▒▒▒▒▒████                                ',
-    '                              ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                              ',
-    '                            ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                            ',
-    '                          ██▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒                              ',
-    '                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▓▓▓▓                          ',
-    '                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▒▒▓▓                          ',
-    '                        ██▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒    ██                        ',
-    '                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ',
-    '                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ',
-    '                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ',
-    '                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ',
-    '                        ██▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒██                        ',
-    '                        ████  ██▒▒██  ██▒▒▒▒██  ██▒▒██                        ',
-    '                        ██      ██      ████      ████                        ',
-}
-dashboard.section.buttons.val = {
-   dashboard.button( "k", "  Open Folder", ":Telescope file_browser path=~/work_dir<CR>"),
-   dashboard.button( "f", "  Find File", ":Telescope find_files <CR>"),
-   dashboard.button( "t", "  Search Text", ":Telescope live_grep <CR>"),
-   dashboard.button( "e", "  New File", ":ene <BAR> startinsert <CR>"),
-   dashboard.button( "r", "󰋚  Recent Files", ":Telescope oldfiles <CR>"),
-   dashboard.button( "q", "  Quit", ":qa! <CR>"),
-}
-dashboard.section.footer.val = "Syltr1x Neovim"
-alpha.setup(dashboard.opts)
-EOF
