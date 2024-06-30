@@ -1,6 +1,5 @@
 set relativenumber
 set number
-syntax on
 set cursorline
 set mouse=
 
@@ -15,8 +14,6 @@ lua require'colorizer'.setup()
 let g:error_lens_enabled = 1 " Inicia el Error-Lens
 
 
-" Mapear atajos de teclado para abrir y cerrar NERDTree
-nnoremap <C-CR> :wincmd w<CR>
 set guicursor=n-v-c:block-Cursor
 set guicursor=a:ver100
 set clipboard+=unnamedplus

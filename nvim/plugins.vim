@@ -17,6 +17,7 @@ Plug 'mattn/emmet-vim'
 Plug 'Townk/vim-autoclose' " Autoclose
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-scripts/sh.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' } " Markdown Preview
 
 Plug 'preservim/nerdtree' " Left Files Menu
 Plug 'rebelot/kanagawa.nvim' " Great wave of Kanagawa theme
