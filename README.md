@@ -39,9 +39,11 @@ Install [Vim-Plug](https://github.com/junegunn/vim-plug):
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-Add Config file to the nvim path:
+Add main, plugins and config files to the nvim path:
 ```
 curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/main/nvim/init.vim -o ~/.config/nvim/init.vim 
+curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/main/nvim/plugins.vim -o ~/.config/nvim/plugins.vim
+curl -s https://raw.githubusercontent.com/syltr1x/dotfiles/main/nvim/configs.vim -o ~/.config/nvim/configs.vim
 ```
 Install Plugins:
 ```
