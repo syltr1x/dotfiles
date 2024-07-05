@@ -1,6 +1,8 @@
+alias malias="cat ~/.zshalias" #Show this file
 alias ls="lsd"
 alias cat="batcat"
 alias torctl="torbrowser-launcher"
+
 #Git Alias
 alias gss="git status -s"
 alias glo="git log --oneline"
