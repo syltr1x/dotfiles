@@ -1,9 +1,8 @@
 import subprocess as sp, os
-from libqtile import bar, layout, qtile, widget, hook
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-bg_path = "/home/syltr1x/Pictures/wallpaper.jpg" # Change this to point to bg file 
+bg_path = "/home/syltr1x/Imágenes/wallpaper.jpg" # Change this to point to bg file 
 
 # Start (picom / fix kitty transparency . feh / set background) 
 @hook.subscribe.startup_once
@@ -18,7 +17,8 @@ alt = "mod1"
 terminal = "kitty"
 rofi = "rofi -show run"
 browser = "firefox"
-editor = "code"
+color_picker = "kcolorchooser"
+screenshot = "flameshot gui"
 colors = ["#ef0a55","#b0b0b0","#0fafa1","#fff","#000"]
 
 keys = [
@@ -55,10 +55,11 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "r", lazy.spawn(rofi), desc="Spawn a Rofi"),
     Key([mod], "f", lazy.spawn(browser), desc="Spawn a Default Browser"),
-    Key([mod], "c", lazy.spawn(editor), desc="Spawn a Default Editor")
+    Key([mod, "shift"], "s", lazy.spawn(screenshot), desc="Take a Screenshot"),
+    Key([mod, "shift"], "c", lazy.spawn(color_picker), desc="Spawn a Color-Picker")
 ]
 
-groups = [Group(i) for i in ["", "󰈹", "", "󰓇", "", "󰒋", "󰖣"]]
+groups = [Group(i) for i in ["", "󰈹", "󰓇", "", "", "󰒋", "󰖣"]]
 
 for i, group in enumerate(groups):
     areaNumber = str(i+1)
@@ -75,7 +76,7 @@ for i, group in enumerate(groups):
     )
 
 layouts = [
-    layout.Columns(margin=5, border_focus="#eddc87", border_width=2),
+    layout.Columns(margin=5, border_focus="#fb4934", border_width=2),
     layout.Max(),
 ]
 
@@ -139,24 +140,30 @@ screens = [
                 margin_y=2,
                 padding_x=12,
                 center_aligned=True,
-                urgent_text="#f00",
+                urgent_text="#2d2d2d",
                 use_mouse_wheel=False,
                 rounded=False,
                 highlight_color="#000",
-                this_current_screen_border=["#642ca3", "#220740"],
+                this_current_screen_border=["#fb4934", "#fe8019"],
             ),
-            widget.WindowName(fontsize=14),
-            left_arrow("#000","#662903"),
-            local_con("#662903", "#ccc"),
-            left_arrow("#662903", "#2b1047"),
-            widget.PulseVolume(fmt="Sound: {}", background="#2b1047", fontsize=14, mute_format="Muted",
+            widget.WindowName(),
+            left_arrow("#2d2d2d","#928374"),
+            local_con("#928374", "#fff"),
+            left_arrow("#928374", "#665c54"),
+            widget.PulseVolume(fmt="Sound: {}", background="#665c54", mute_format="Muted",
                 mouse_callbacks={'Button1': lazy.spawn("pulseaudio-ctl mute")}),
-            left_arrow("#2b1047", "#1e657d"),
-            widget.Clock(format="%d/%m %H:%M:%S", background="#1e657d", fontsize=14),
-            left_arrow("#1e657d", "#135715"),
-            widget.Battery(format="{char} {percent:1.0%}", background="#135715", fontsize=14, discharge_char='',
-                charge_char='', full_char='󱊣', low_background="#591f12", low_foreground="#fff", low_percentage=0.15),
-        ], 28),
+            left_arrow("#665c54", "#3c3836"),
+            widget.Clock(format="%d/%m %H:%M:%S", background="#3c3836"),
+            left_arrow("#3c3836", "#1d2021"),
+            widget.Notify(background="#1d2021"),
+
+            # UNCOMMENT THIS FOR BATTERY WIDGET (ON LAPTOP)
+            # left_arrow("#1d2021", "#0e1010"),
+            # widget.Battery(format="{char} {percent:1.0%}", background="#0e1010", discharge_char='',
+                # charge_char='', full_char='󱊣', low_foreground="#591f12", low_background="#0e1010", low_percentage=0.15),
+        ], 28,
+           background="#272727",
+        ),
     ),
 ]
 
