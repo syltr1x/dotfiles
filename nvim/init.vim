@@ -26,3 +26,4 @@ augroup lsp
   autocmd!
   autocmd BufEnter,BufWinENter,TabEnter *.py lua vim.diagnostic.setloclist({open = false})
 augroup END
+
