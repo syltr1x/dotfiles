@@ -1,8 +1,7 @@
--- Requiere cmp y LSP
 local cmp = require'cmp'
 local lspconfig = require'lspconfig'
 
--- Configuración de nvim-cmp
+-- nvim-cmp config
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -13,12 +12,12 @@ cmp.setup({
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-y>'] = cmp.config.disable, -- Deshabilitar mapeo por defecto de <C-y>
+        ['<C-y>'] = cmp.config.disable, -- Disable default mapping of <C-y>
         ['<C-e>'] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirmar con Enter
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Config with Enter
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -46,10 +45,9 @@ cmp.setup({
     })
 })
 
--- Configurar capacidades adicionales para LSP
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Configuración de los servidores de lenguaje
+-- Server languages config
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.tsserver.setup { capabilities = capabilities }
 lspconfig.rust_analyzer.setup { capabilities = capabilities }

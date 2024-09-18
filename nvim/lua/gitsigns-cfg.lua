@@ -14,7 +14,6 @@ require('gitsigns').setup {
   status_formatter = nil, -- Use default
 }
 
--- Definimos los highlights de manera compatible con la nueva configuración
 vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'GitGutterAdd' })
 vim.api.nvim_set_hl(0, 'GitSignsAddNr', { link = 'GitSignsAddNr' })
 vim.api.nvim_set_hl(0, 'GitSignsAddLn', { link = 'GitSignsAddLn' })
