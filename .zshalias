@@ -1,7 +1,8 @@
 alias malias="cat ~/.zshalias" #Show this file
 alias ls="lsd"
-alias cat="batcat"
+alias cat="bat"
 alias torctl="torbrowser-launcher"
+#alias discord="~/Desktop/Discord/Discord" #Uncomment and replace with your discord path
 
 #Git Alias
 alias gss="git status -s"
