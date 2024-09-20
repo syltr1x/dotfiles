@@ -5,13 +5,13 @@ local function get_colored_diagnostics()
   local hint_count = #vim.diagnostic.get(0, {severity = vim.diagnostic.severity.HINT})
 
   if error_count > 0 then
-    table.insert(diagnostics, string.format("%s:%d", "%#LspDiagnosticsError#", error_count))
+    table.insert(diagnostics, string.format("%s %d", "%#LspDiagnosticsError#", error_count))
   end
   if warning_count > 0 then
-    table.insert(diagnostics, string.format("%s󱈸:%d", "%#LspDiagnosticsWarning#", warning_count))
+    table.insert(diagnostics, string.format("%s󱈸 %d", "%#LspDiagnosticsWarning#", warning_count))
   end
   if hint_count > 0 then
-    table.insert(diagnostics, string.format("%s:%d", "%#LspDiagnosticsHint#", hint_count))
+    table.insert(diagnostics, string.format("%s %d", "%#LspDiagnosticsHint#", hint_count))
   end
 
   return table.concat(diagnostics, ' ')
@@ -41,7 +41,7 @@ require('lualine').setup {
           modified = { fg = '#ECBE7B' },
           removed  = { fg = '#ec5f67' },
         },
-        symbols = {added = ' ', modified = '柳 ', removed = ' '},
+        symbols = {added = '󱇬 ', modified = '󰏫 ', removed = '󱘹 '},
         source = nil,
       },
       get_colored_diagnostics,
