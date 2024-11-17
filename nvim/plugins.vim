@@ -30,7 +30,7 @@ Plug 'lewis6991/gitsigns.nvim' " Left and bar git signs
 Plug 'nvim-lualine/lualine.nvim' " Bar
 
 Plug 'preservim/nerdtree' " Left Files Menu
-Plug 'rebelot/kanagawa.nvim' " Great wave of Kanagawa theme
+Plug 'ellisonleao/gruvbox.nvim' " Gruvbox theme
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-fugitive' " Add Git
 Plug 'ryanoasis/vim-devicons' " Needed Icons

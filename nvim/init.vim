@@ -6,7 +6,8 @@ set mouse=
 so ~/.config/nvim/plugins.vim " Incluye la configuracion de plugins
 so ~/.config/nvim/configs.vim " Incluye la configuracion de status bar
  
-colorscheme kanagawa-wave " Schemens: wave, dragon, lotus
+set background=dark
+colorscheme gruvbox
 " highlight Normal guibg=NONE ctermbg=NONE " Uncomment this for transparent background
 lua require'colorizer'.setup()
 let g:error_lens_enabled = 1 " Inicia el Error-Lens
