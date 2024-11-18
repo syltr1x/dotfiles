@@ -22,6 +22,17 @@ let NERDTreeShowLineNumbers=1
 
 " Markdown Preview
 nmap <C-m> <Plug>MarkdownPreviewToggle
+nnoremap M :call ToggleConcealLevel()<CR>
+
+function! ToggleConcealLevel()
+  if &conceallevel == 0
+    set conceallevel=2
+    echo "Conceal enabled"
+  else
+    set conceallevel=0
+    echo "Conceal disabled"
+  endif
+endfunction
 
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
