@@ -22,7 +22,7 @@ let NERDTreeShowLineNumbers=1
 
 " Markdown Preview
 nmap <C-m> <Plug>MarkdownPreviewToggle
-nnoremap M :call ToggleConcealLevel()<CR>
+nmap M :call ToggleConcealLevel()<CR>
 
 function! ToggleConcealLevel()
   if &conceallevel == 0
