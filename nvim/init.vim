@@ -12,6 +12,10 @@ colorscheme gruvbox
 lua require'colorizer'.setup()
 let g:error_lens_enabled = 1 " Inicia el Error-Lens
 
+noremap ci "_ci
+noremap ca "_ca
+noremap x "_x
+noremap <Del> "_x
 
 set guicursor=n-v-c:block-Cursor
 set guicursor=a:ver100
